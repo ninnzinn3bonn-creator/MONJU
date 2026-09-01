@@ -1,0 +1,27 @@
+{
+  "name": "@monju/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "cf-typegen": "wrangler types",
+    "typecheck": "wrangler types --check && tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@monju/domain": "0.1.0",
+    "jose": "^6.2.10",
+    "pg": "^8.23.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.1.1",
+    "@types/node": "^26.4.0",
+    "@types/pg": "^8.23.1",
+    "typescript": "~6.0.3",
+    "vitest": "^4.1.11",
+    "wrangler": "^4.127.0"
+  }
+}

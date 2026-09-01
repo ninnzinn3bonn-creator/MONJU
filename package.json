@@ -1,0 +1,22 @@
+{
+  "name": "monju",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "mobile": "npm --workspace @monju/mobile run start",
+    "web": "npm --workspace @monju/mobile run web",
+    "ios": "npm --workspace @monju/mobile run ios",
+    "ios:device": "npm --workspace @monju/mobile run ios:device",
+    "api": "npm --workspace @monju/api run dev",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "check": "npm run typecheck && npm run test"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}

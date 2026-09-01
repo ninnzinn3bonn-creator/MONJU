@@ -1,0 +1,46 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "monju-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-27",
+  "compatibility_flags": ["nodejs_compat"],
+  "placement": {
+    "mode": "smart"
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "ENVIRONMENT": "development",
+    "GOOGLE_WEB_CLIENT_ID": "replace-me.apps.googleusercontent.com",
+    "EXPO_PUSH_ENDPOINT": "https://exp.host/--/api/v2/push/send"
+  },
+  "secrets": {
+    "required": ["AUTH_SECRET"]
+  },
+  "ratelimits": [
+    {
+      "name": "AUTH_RATE_LIMITER",
+      "namespace_id": "1001",
+      "simple": {
+        "limit": 20,
+        "period": 60
+      }
+    },
+    {
+      "name": "USER_RATE_LIMITER",
+      "namespace_id": "1002",
+      "simple": {
+        "limit": 180,
+        "period": 60
+      }
+    }
+  ],
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "00000000000000000000000000000000"
+    }
+  ]
+}
